@@ -30,6 +30,20 @@ class Showcase extends Component {
       };
   }
 
+  componentDidMount() {
+    window.addEventListener("resize", this.updateDimensions.bind(this));
+  }
+
+  updateDimensions() {
+    var numberOfCards = 0
+    if (window.innerWidth > 1000) {
+      numberOfCards = 9
+    }else{
+      numberOfCards = ~~(window.innerWidth/100)
+    }
+    this.setState({ numberOfCards: numberOfCards });
+  }
+
   render() {
     return (
         <Wrapper>
