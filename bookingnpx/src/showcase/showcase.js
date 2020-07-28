@@ -6,13 +6,11 @@ const chevronWidth = 40;
 
 const Wrapper = styled.div`
   padding: 0 ${chevronWidth}px;
-  margin: 0 auto;
-  max-width: 1000px;
+  margin: 3%;
 `;
 
 const SlideItem = styled.div`
   height: 100%;
-  width: 160px;
   background: #EEE;
   display: flex;
   align-items: center;
@@ -20,7 +18,6 @@ const SlideItem = styled.div`
   font-size: 13px;
   font-weight: bold;
   flex-direction: column;
-  margin: 15px !important;
 `;
 
 class Showcase extends Component {
@@ -28,7 +25,8 @@ class Showcase extends Component {
   constructor(props){
     super(props);
     this.state = {
-        activeItemIndex: 0
+        activeItemIndex: 0,
+        numberOfCards: (window.innerWidth > 1000 ? 9 : ~~(window.innerWidth/100))
       };
   }
 
@@ -41,11 +39,12 @@ class Showcase extends Component {
                 leftChevron={'<'}
                 rightChevron={'>'}
                 infiniteLoop={false}
+                gutter={15}
                 activePosition={'center'}
-                chevronWidth={60}
+                chevronWidth={chevronWidth}
                 disableSwipe={false}
                 alwaysShowChevrons={false}
-                numberOfCards={9}
+                numberOfCards={this.state.numberOfCards}
                 slidesToScroll={1}
                 outsideChevron={true}
                 showSlither={true}
