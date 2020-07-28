@@ -62,7 +62,7 @@ class Showcase extends Component {
     super(props);
     this.state = {
         activeItemIndex: 0,
-        numberOfCards: (window.innerWidth > 1000 ? 9 : ~~(window.innerWidth/100))
+        numberOfCards: (window.innerWidth > 1000 ? 9 : ~~(window.innerWidth/100) -1 )
       };
   }
 
@@ -75,63 +75,60 @@ class Showcase extends Component {
     if (window.innerWidth > 1000) {
       numberOfCards = 9
     }else{
-      numberOfCards = ~~(window.innerWidth/100)
+      numberOfCards = ~~(window.innerWidth/100) -1
     }
     this.setState({ numberOfCards: numberOfCards });
   }
 
   render() {
     return (
-        <Wrapper>
-            <ItemsCarousel
-                requestToChangeActive={value => this.setState({ activeItemIndex: value })}
-                activeItemIndex={this.state.activeItemIndex}
-                leftChevron={'<'}
-                rightChevron={'>'}
-                infiniteLoop={false}
-                gutter={15}
-                activePosition={'center'}
-                chevronWidth={chevronWidth}
-                disableSwipe={false}
-                alwaysShowChevrons={false}
-                numberOfCards={this.state.numberOfCards}
-                slidesToScroll={1}
-                outsideChevron={true}
-                showSlither={true}
-                firstAndLastGutter={true}
-                >
-                    {Array.from(Object.entries(this.props.data.products)).map((entri, i) =>
-                    <SlideItem key={i}>
-                      <div style={{top: '0px !important', height: '50%'}}>
-                        <img src={entri[1].image.extraLarge != null ? entri[1].image.extraLarge : entri[1].image.large}
-                          alt={entri[1].image.name + "Image"}
-                          style={{width: '100%'}}></img>
-                      </div>
-                      <div style={{
-                        margin: 5, 
-                        height: '50%', 
-                        bottom: 5,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        justifyContent: 'flex-start',
-                        }}>
-                        <TitleText>{entri[1].name}</TitleText>
-                        <InstallmentText>{entri[1].installment}</InstallmentText>
-                        <div style={{margin: '8px', textAlign: 'center'}}> 
-                          <CurrencyPrice>{entri[1].offerPrice}</CurrencyPrice>
-                          <CurrencyText>{entri[1].currency}</CurrencyText>
-                        </div>
-                        <SellerText>{entri[1].sellerName}</SellerText>
-                      </div>
-                    </SlideItem>
-                    )}
-            </ItemsCarousel>
-        </Wrapper>
+      <Wrapper>
+        <ItemsCarousel
+          requestToChangeActive={value => this.setState({ activeItemIndex: value })}
+          activeItemIndex={this.state.activeItemIndex}
+          leftChevron={'<'}
+          rightChevron={'>'}
+          infiniteLoop={false}
+          gutter={15}
+          activePosition={'center'}
+          chevronWidth={chevronWidth}
+          disableSwipe={false}
+          alwaysShowChevrons={false}
+          numberOfCards={this.state.numberOfCards}
+          slidesToScroll={1}
+          outsideChevron={true}
+          showSlither={true}
+          firstAndLastGutter={true}
+          >
+            {Array.from(Object.entries(this.props.data.products)).map((entri, i) =>
+              <SlideItem key={i}>
+                <div style={{top: '0px !important', height: '50%'}}>
+                  <img src={entri[1].image.extraLarge != null ? entri[1].image.extraLarge : entri[1].image.large}
+                    alt={entri[1].image.name + "Image"}
+                    style={{width: '100%'}}></img>
+                </div>
+                <div style={{
+                  margin: 5, 
+                  height: '50%', 
+                  marginTop: '1.2em',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'flex-start',
+                  }}>
+                  <TitleText>{entri[1].name}</TitleText>
+                  <InstallmentText>{entri[1].installment}</InstallmentText>
+                  <div style={{margin: '8px', textAlign: 'center'}}> 
+                    <CurrencyPrice>{entri[1].offerPrice}</CurrencyPrice>
+                    <CurrencyText>{entri[1].currency}</CurrencyText>
+                  </div>
+                  <SellerText>{entri[1].sellerName}</SellerText>
+                </div>
+              </SlideItem>
+            )}
+        </ItemsCarousel>
+      </Wrapper>
     );
   }
 }
-export default Showcase;                        
-
-
-                        //ratingAverage
+export default Showcase;
