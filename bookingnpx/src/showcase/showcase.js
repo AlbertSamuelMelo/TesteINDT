@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import ItemsCarousel from 'react-items-carousel';
 import styled from 'styled-components';
 
@@ -7,7 +7,7 @@ const chevronWidth = 40;
 const Wrapper = styled.div`
   padding: 0 ${chevronWidth}px;
   margin: 0 auto;
-  max-width: 1600px;
+  max-width: 1000px;
 `;
 
 const SlideItem = styled.div`
@@ -53,8 +53,8 @@ class Showcase extends Component {
                 >
                     {Array.from(Object.entries(this.props.data.products)).map((entri, i) =>
                     <SlideItem key={i}>
-                        <img src={entri[1].image.extraLarge} 
-                             onError={(e)=>{e.target.src=entri[1].image.large}}
+                        <img src={entri[1].image.extraLarge != null ? entri[1].image.extraLarge : entri[1].image.large} 
+                             alt={entri[1].image.name + "Image"}
                             style={{width: '100%'}}></img>
                         {entri[1].name}
                         <text>{entri[1].installment}</text>
