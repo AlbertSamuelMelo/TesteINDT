@@ -50,19 +50,19 @@ const CurrencyText = styled.text`
   top: -.5em;
   font-size: 10px;`;
 
-  const SellerText = styled.text`
-    color: #555;
-    font-size: 11px;
-    line-height: 1.25;
-    width: 100%;
-  `;
+const SellerText = styled.text`
+  color: #555;
+  font-size: 11px;
+  line-height: 1.25;
+  width: 100%;
+`;
 class Showcase extends Component {
 
   constructor(props){
     super(props);
     this.state = {
-        activeItemIndex: 0,
-        numberOfCards: (window.innerWidth > 1000 ? 9 : ~~(window.innerWidth/100) -1 )
+      activeItemIndex: 0,
+      numberOfCards: (window.innerWidth > 1000 ? 9 : ~~(window.innerWidth/100) -1 )
       };
   }
 
