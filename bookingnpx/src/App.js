@@ -3,6 +3,10 @@ import './App.css';
 import Showcase from './showcase/Showcase'
 import Axios from 'axios';
 
+
+/* App structure 
+  here we init our component class after get following url data
+*/
 class App extends Component {
   constructor(props){
     super(props);

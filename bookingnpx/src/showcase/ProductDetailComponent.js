@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
+/* 
+    Component render products details
+*/
+
+/* 
+    Styles used by products details
+*/
 const ProductDetail = styled.div`
     padding: 5px;
     height: 50%;

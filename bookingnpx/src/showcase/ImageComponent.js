@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
+/* 
+    Component render product images
+*/
+
+/* 
+    Styles used by images
+*/
 const ImageContainer = styled.div`
     top: 0px !important;
     height: 50%;

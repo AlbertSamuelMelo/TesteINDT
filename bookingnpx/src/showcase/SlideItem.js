@@ -3,6 +3,13 @@ import styled from 'styled-components';
 import ImageComponent from './ImageComponent'
 import ProductDetailComponent from './ProductDetailComponent'
 
+/* 
+    Component render of Carousel cards
+*/
+
+/* 
+    Styles used by Carousel cards
+*/
 const Slide = styled.div`
   height: 100%;
   display: flex;

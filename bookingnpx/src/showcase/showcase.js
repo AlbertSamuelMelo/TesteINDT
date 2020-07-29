@@ -2,9 +2,17 @@ import React, { Component } from 'react';
 import ItemsCarousel from 'react-items-carousel';
 import styled from 'styled-components';
 import SlideItem from './SlideItem';
-const chevronWidth = 40;
 
-const Wrapper = styled.div`
+/* 
+  Showcase is our main component that will fill the other components with data
+  @props - data: json - Here we recive the JSON of our Store
+*/
+const chevronWidth = 40; //Size of Carousel button
+
+/*
+  Styles of our main container
+*/
+const ShowcaseContainer = styled.div`
   padding: 0 ${chevronWidth}px;
   margin: 3%;
 `;
@@ -22,7 +30,8 @@ class Showcase extends Component {
   componentDidMount() {
     window.addEventListener("resize", this.updateDimensions.bind(this));
   }
-
+  
+  // Function that changes Carousel number of cards
   updateDimensions() {
     var numberOfCards = 0
     if (window.innerWidth > 1000) {
@@ -35,7 +44,7 @@ class Showcase extends Component {
 
   render() {
     return (
-      <Wrapper>
+      <ShowcaseContainer>
         <ItemsCarousel
           requestToChangeActive={value => this.setState({ activeItemIndex: value })}
           activeItemIndex={this.state.activeItemIndex}
@@ -57,7 +66,7 @@ class Showcase extends Component {
               <SlideItem key={i} data={entri}/>
             )}
         </ItemsCarousel>
-      </Wrapper>
+      </ShowcaseContainer>
     );
   }
 }
