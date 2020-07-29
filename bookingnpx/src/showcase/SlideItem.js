@@ -5,6 +5,7 @@ import ProductDetailComponent from './ProductDetailComponent'
 
 /* 
     Component render of Carousel cards
+    @props - data: json - Here we recive the JSON of our Store
 */
 
 /* 

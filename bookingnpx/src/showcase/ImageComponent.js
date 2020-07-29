@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 /* 
     Component render product images
+    @props - data: json - Here we recive the JSON of our Store
+
 */
 
 /* 
