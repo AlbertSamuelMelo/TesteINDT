@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Showcase from './showcase/showcase'
+import Showcase from './showcase/Showcase'
 import library from './librairu.json'
 
 class App extends Component {
