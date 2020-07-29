@@ -5,7 +5,6 @@ import ProductDetailComponent from './ProductDetailComponent'
 
 const Slide = styled.div`
   height: 100%;
-  background: #EEE;
   display: flex;
   align-items: center;
   justify-content: space-between;
